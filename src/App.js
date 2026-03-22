@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Item from './components/Item';
 import ItemDate from './components/ItemDate';
-
+import { useState } from 'react';
+import NewProduct from './components/NewProduct';
 function App() {
 
   const response = [
@@ -19,10 +20,17 @@ function App() {
       Itemdate: '17.09.20186'
     }
   ] 
+
+  function printProductData(data){
+    console.log(data , 'inside app');
+    console.log('i am inside app');
+  }
+
+  let responsename = response[0].Itemname;
   return (
     <div className="App">
-
-        <Item name="deepu"></Item>
+        <NewProduct printProduct={printProductData}></NewProduct>
+        <Item Itemname={responsename}>{responsename}</Item>
         <ItemDate></ItemDate>
     </div>
   );
